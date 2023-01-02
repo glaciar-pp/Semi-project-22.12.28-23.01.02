@@ -20,7 +20,7 @@ public class FileDownload extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String file = request.getParameter("file");
-		String fileName = "c:/Temp/upload/" + file;
+		String fileName = "/tmp/upload/" + file;
 		
 		OutputStream out = response.getOutputStream();
 		File f = new File(fileName);

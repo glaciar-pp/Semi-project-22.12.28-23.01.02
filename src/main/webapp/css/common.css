@@ -74,7 +74,7 @@ a { text-decoration: none; }
 /* 이미지 크기 적용을 위한 캐릭터 클래스, 필요한 곳에 적용 */
 .character {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;

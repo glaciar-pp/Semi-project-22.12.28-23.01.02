@@ -1,4 +1,4 @@
-package taro;
+package factpok;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,29 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class TaroController
+ * Servlet implementation class FactpokController
  */
-@WebServlet({"/taro/main", "/taro/test", "/taro/result"})
-public class TaroController extends HttpServlet {
+@WebServlet({"/factpok/main", "/factpok/test", "/factpok/result"})
+public class FactpokController extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] uri = request.getRequestURI().split("/");
 		String action = uri[uri.length - 1];
 		request.setCharacterEncoding("UTF-8");	
 		HttpSession session = request.getSession();
-		session.setAttribute("menu", "taro");
-		TaroDao dao = new TaroDao();
+		session.setAttribute("menu", "factpok");
+		FactpokDao dao = new FactpokDao();
 		int s1 = 0, s2 = 0, s3 = 0, s4 = 0;
 		String result = null;
 		
 		RequestDispatcher rd = null;
 		int qNo;
 		
-		Taro taro = null;
+		Factpok factpok = null;
 		response.setContentType("text/html; charset=utf-8");
 		switch(action) {
 		case "main":
-			rd = request.getRequestDispatcher("/WEB-INF/view/taro/main.jsp");
+			rd = request.getRequestDispatcher("/WEB-INF/view/factpok/main.jsp");
 			rd.forward(request, response);	
 			break;
 		case "test":
@@ -48,13 +48,13 @@ public class TaroController extends HttpServlet {
 					session.setAttribute("s4", 0);
 				}
 				if (qNo == 13) {		// 최종 실행, result로 이동
-					response.sendRedirect("/ncpl/taro/result");
+					response.sendRedirect("/ncpl/factpok/result");
 				} else {
-					taro = dao.getQuesInfo(qNo);
+					factpok = dao.getQuesInfo(qNo);
 					request.setAttribute("progress", (qNo-1) * 100 / 12);
 					request.setAttribute("qNo", qNo);
-					request.setAttribute("taro", taro);
-					rd = request.getRequestDispatcher("/WEB-INF/view/taro/test.jsp");
+					request.setAttribute("factpok", factpok);
+					rd = request.getRequestDispatcher("/WEB-INF/view/factpok/test.jsp");
 					rd.forward(request, response);	
 				}
 				
@@ -96,7 +96,7 @@ public class TaroController extends HttpServlet {
 				session.setAttribute("s4", s4);
 				
 				//System.out.println(qNo + ", " + op);
-				response.sendRedirect("/ncpl/taro/test?qNo=" + (qNo+1));
+				response.sendRedirect("/ncpl/factpok/test?qNo=" + (qNo+1));
 
 			}
 			break;
@@ -114,7 +114,7 @@ public class TaroController extends HttpServlet {
 			result += (s4 >= 0) ? "P" : "J";
 			
 			request.setAttribute("result", result);
-			rd = request.getRequestDispatcher("/WEB-INF/view/taro/result.jsp");
+			rd = request.getRequestDispatcher("/WEB-INF/view/factpok/result.jsp");
 			rd.forward(request, response);
 			
 			break;

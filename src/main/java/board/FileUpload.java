@@ -21,7 +21,7 @@ public class FileUpload extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String tmpPath = "c:/Temp/upload";
+		String tmpPath = "/tmp/upload";
 		request.setCharacterEncoding("utf-8");
 		String dest = request.getParameter("dest");
 		//System.out.println(dest);

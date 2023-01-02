@@ -22,7 +22,7 @@ public class ImageUpload extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String tmpPath = "c:/Temp/upload";
+		String tmpPath = "/tmp/upload";
 		String callback = request.getParameter("CKEditorFuncNum");
 		//System.out.println(callback);
 		String error = "";

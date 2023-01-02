@@ -68,7 +68,7 @@ public class BoardDAO {
 	public int getBoardCount(String field, String query) {
 		Connection conn = getConnection();
 		String sql = "SELECT COUNT(bid) FROM ncplBoard AS b"
-				+ "	JOIN users AS u"
+				+ "	JOIN ncplUsers AS u"
 				+ "	ON b.uid=u.uid"
 				+ "	WHERE b.isDeleted=0 AND " + field + " LIKE ?;";
 		int count = 0;
@@ -109,7 +109,7 @@ public class BoardDAO {
 		Connection conn = getConnection();
 		String sql = "SELECT b.bid, b.uid, b.title, b.content, b.modTime, b.viewCount,"
 				+ "	b.replyCount, b.files, u.uname FROM ncplBoard AS b"
-				+ "	JOIN users AS u"
+				+ "	JOIN ncplUsers AS u"
 				+ "	ON b.uid=u.uid"
 				+ "	WHERE b.bid=?";
 		Board b = new Board();

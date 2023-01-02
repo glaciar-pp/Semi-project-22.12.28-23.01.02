@@ -26,7 +26,6 @@
 </head>
 <body>
 	 <%@ include file="../common/top.jsp" %>
-	<form action="/ncpl/constellation/result" method="post">
 	<h2 class="page-subtitle">
     ${uname} 회원님
   	</h2>
@@ -81,7 +80,6 @@
 	<div class="btn btn-green btn-small share-or-copy" >
 		링크 공유하기
 	</div>
-	</form>
 	<%@ include file="../common/bottom.jsp" %>
 
 </body>

@@ -17,16 +17,15 @@
 <body>
 	<%@ include file="../common/top.jsp" %>
 	
-	<form action="/ncpl/taro/test" method="post">
+	<form action="/ncpl/factpok/test" method="post">
 		<input class="name" type="hidden" name="qNo" value="${qNo}">
 		<div class="progress">
     		<div class="value" style="width:${progress}%"></div>
   		</div>
 		<div class="question-box">
-	 	 	<div class="question"><br><br><br>${taro.content}<br><br><br></div>
-	 	 	
-	 		<button class="btn btn-gray choice choice1" type="submit" name="op" value="ans1">${taro.ans1}</button>
-	 	 	<button class="btn btn-gray choice choice2" type="submit" name="op" value="ans2">${taro.ans2}</button>
+	 	 	<div class="question">${factpok.content}</div>
+	 		<button class="btn btn-gray choice choice1" type="submit" name="op" value="ans1">${factpok.ans1}</button>
+	 	 	<button class="btn btn-gray choice choice2" type="submit" name="op" value="ans2">${factpok.ans2}</button>
 		</div>
 		
 	</form>
